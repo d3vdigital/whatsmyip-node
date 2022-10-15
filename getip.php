@@ -1,23 +1,19 @@
 <?php
 
 /**
- * Get Client IP Address and build content array
- */
-$content_array = [
-    'ip' => getClientIP()
-];
-
-
-/**
  * Handle format parameter and output. Available options are json and xml
  */
 $format = $_REQUEST['format'];
 switch (strtolower($format)) {
     case 'xml':
-        xmlOutput($content_array);
+        xmlOutput([
+            getClientIP() => 'ip'
+        ]);
         break;
     default:
-        jsonOutput($content_array);
+        jsonOutput([
+            'ip' => getClientIP()
+        ]);
         break;
 }
 
@@ -29,6 +25,7 @@ function jsonOutput($content_array){
 }
 
 function xmlOutput($content_array){
+    header('Content-Type: text / xml');
     $xml = new SimpleXMLElement('<root/>');
     array_walk_recursive($content_array, array ($xml, 'addChild'));
     echo $xml->asXML();
