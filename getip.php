@@ -9,6 +9,15 @@
 
 
 /**
+ * Headers Needed
+ */
+header("Access-Control-Allow-Origin: https://whatsmyip.help");
+header("Access-Control-Allow-Credentials: true ");
+header("Access-Control-Allow-Methods: OPTIONS, GET, POST");
+header("Access-Control-Allow-Headers: Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control");
+
+
+/**
  * Handle format parameter and output. Available options are json and xml
  */
 $format = $_REQUEST['format'];
