@@ -1,4 +1,12 @@
 <?php
+/**
+ * whatsmyip.help Node Script
+ *
+ * Author: Zac Dreyer (zac@dreycor.com)
+ *
+ * Requires PHP7.4+
+ */
+
 
 /**
  * Handle format parameter and output. Available options are json and xml
